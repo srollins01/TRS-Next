@@ -14,13 +14,16 @@
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "aos": "^2.3.4",
     "jsdom": "^25.0.0",
     "next": "14.2.7",
     "puppeteer": "^23.2.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-simple-image-slider": "^2.4.1"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^20",
     "@types/react": "^18",

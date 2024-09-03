@@ -1,11 +1,16 @@
-import Events from "./components/Events"
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar"
+import Banner from "./components/Banner"
+import Container from "./components/Container"
+import Footer from "./components/Footer"
+
 
 export default async function Home() {
   return (
     <>
     <Navbar />
-    <Events />
+    <Banner />
+    <Container />
+    <Footer />
     </>
   );
 }
