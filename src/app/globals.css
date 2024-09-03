@@ -83,7 +83,12 @@ html {
 
 .card:hover {
   box-shadow: 0 0 10px #00000081;
-  scale: 102%
+  scale: 102%;
+}
+
+.card.inactive-card:hover {
+  box-shadow: none;
+  scale: 100%;
 }
 
 .card .desc > p {
