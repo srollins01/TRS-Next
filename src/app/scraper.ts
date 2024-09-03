@@ -1,11 +1,18 @@
 import puppeteer from "puppeteer"
+import { TimeoutError } from 'puppeteer'
 
 export default async function Scraper() {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto('https://www.meetup.com/rpgtokyo/');
 
-  await page.waitForSelector('#event-card-e-1');
+  try {
+    await page.waitForSelector('#event-card-e-1', {timeout: 5000});
+  } catch (e) {
+    if (e instanceof TimeoutError) {
+      return null
+    }
+  }
 
   const evTitle1 = await page.evaluate(() => {
     return document.querySelector('#event-card-e-1 .ds-font-title-3')?.textContent
