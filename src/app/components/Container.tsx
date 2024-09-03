@@ -1,12 +1,5 @@
 import Events from "./Events"
-// import SimpleImageSlider from "react-simple-image-slider"
-
-// const images = [
-//   { url: "/titans.jpg" },
-//   { url: "/group-pic1.jpg" },
-//   { url: "/group-pic2.jpg" },
-// ];
-
+import Slideshow from "./Slideshow"
 
 function Container() {
   return (
@@ -15,16 +8,7 @@ function Container() {
       <section id="about-us">
         <div>
           <div className="slideshow" data-aos="fade-up">
-            {/* <SimpleImageSlider
-            width={200}
-            height={200}
-            images={images}
-            showBullets={true}
-            showNavs={false}
-            autoPlay={true}
-            autoPlayDelay={5}
-            bgColor={"#00000000"}
-            /> */}
+            <Slideshow />
           </div>
           <div>
             <h1>About<strong><em> Tokyo RPG Society</em></strong></h1>

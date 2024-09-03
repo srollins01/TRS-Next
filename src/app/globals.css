@@ -302,6 +302,11 @@ html {
     padding-top: 20px;
   }
 
+  .slideshow div {
+    width: 270px !important;
+    height: 190px !important;
+  }
+
   .topnav > .nav-text > a {
     padding: 5px 10px;
     font-size: 14px;
