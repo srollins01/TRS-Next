@@ -1,215 +1,67 @@
-import puppeteer from "puppeteer"
-import { TimeoutError } from 'puppeteer'
+import puppeteer from "puppeteer";
+import { TimeoutError } from 'puppeteer';
 
 export default async function Scraper() {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto('https://www.meetup.com/rpgtokyo/');
 
-  try {
-    await page.waitForSelector('#event-card-e-1', {timeout: 5000});
-  } catch (e) {
-    if (e instanceof TimeoutError) {
-      return null
+  async function getEventDetails(eventIndex : number) {
+    const eventCardSelector = `#event-card-e-${eventIndex}`;
+
+    try {
+      await page.waitForSelector(eventCardSelector, { timeout: 8000 });
+    } catch (e) {
+      if (e instanceof TimeoutError) return null;
+      throw e;
     }
-  }
 
-  const evTitle1 = await page.evaluate(() => {
-    return document.querySelector('#event-card-e-1 .ds-font-title-3')?.textContent
-  });
+    const evTitle = await page.evaluate((sel) => document.querySelector(`${sel} .ds-font-title-3`)?.textContent, eventCardSelector);
+    const img = await page.evaluate((sel) => document.querySelector(`${sel.replace('#event-card', '#image')}`)?.getAttribute('src'), eventCardSelector);
+    const time = await page.evaluate((sel) => document.querySelector(`${sel} time`)?.textContent, eventCardSelector);
+    const loc = await page.evaluate((sel) => document.querySelector(`${sel} span.text-gray6`)?.textContent, eventCardSelector);
+    const link = await page.evaluate((sel) => document.querySelector(sel)?.getAttribute('href'), eventCardSelector);
 
-  const img1 = await page.evaluate(() => {
-    return document.querySelector('#image-e-1')?.getAttribute('src')
-  });
+    let desc = await page.evaluate((sel) => {
+      const descgr = document.querySelectorAll(`${sel} p`);
+      return Array.from(descgr).map(p => p?.textContent).join(' ');
+    }, eventCardSelector);
 
-  const time1 = await page.evaluate(() => {
-    return document.querySelector('#event-card-e-1 time')?.textContent
-  });
-
-  const loc1 = await page.evaluate(() => {
-    return document.querySelector('#event-card-e-1 span.text-gray6')?.textContent
-  });
-
-  const link1 = await page.evaluate(() => {
-    return document.querySelector('#event-card-e-1')?.getAttribute('href')
-  });
-
-  let desc1 = await page.evaluate(() => {
-    const descgr1 = document.querySelectorAll('#event-card-e-1 p')
-    return Array.from(descgr1).map(p => p?.textContent).join(' ')
-  });
-
-  if (desc1.length > 300) {
-    desc1 = desc1.substring(0, 300).trimEnd() + '...'
-  }
-
-  try {
-    await page.waitForSelector('#event-card-e-2', {timeout: 5000});
-  } catch (e) {
-    if (e instanceof TimeoutError) {
-      return ({
-        title: evTitle1,
-        title2: null,
-        title3: null,
-        title4: null,
-        img: img1,
-        img2: null,
-        img3: null,
-        time: time1,
-        time2: null,
-        time3: null,
-        loc: loc1,
-        loc2: null,
-        loc3: null,
-        link: link1,
-        link2: null,
-        link3: null,
-        desc: desc1,
-        desc2: null,
-        desc3: null,
-      });
+    if (desc.length > 300) {
+      desc = desc.substring(0, 300).trimEnd() + '...';
     }
+
+    return { title: evTitle, img, time, loc, link, desc };
   }
 
-  const evTitle2 = await page.evaluate(() => {
-    return document.querySelector('#event-card-e-2 .ds-font-title-3')?.textContent
-  });
-
-  const img2 = await page.evaluate(() => {
-    return document.querySelector('#image-e-2')?.getAttribute('src')
-  });
-
-  const time2 = await page.evaluate(() => {
-    return document.querySelector('#event-card-e-2 time')?.textContent
-  });
-
-  const loc2 = await page.evaluate(() => {
-    return document.querySelector('#event-card-e-2 span.text-gray6')?.textContent
-  });
-
-  const link2 = await page.evaluate(() => {
-    return document.querySelector('#event-card-e-2')?.getAttribute('href')
-  });
-
-  let desc2 = await page.evaluate(() => {
-    const descgr2 = document.querySelectorAll('#event-card-e-2 p')
-    return Array.from(descgr2).map(p => p?.textContent).join(' ')
-  });
-
-  if (desc2.length > 300) {
-    desc2 = desc2.substring(0, 300).trimEnd() + '...'
+  const events = [];
+  for (let i = 1; i <= 4; i++) {
+    const eventDetails = await getEventDetails(i);
+    if (!eventDetails) break;
+    events.push(eventDetails);
   }
-
-  try {
-    await page.waitForSelector('#event-card-e-3', {timeout: 5000});
-  } catch (e) {
-    if (e instanceof TimeoutError) {
-      return ({
-        title: evTitle1,
-        title2: evTitle2,
-        title3: null,
-        title4: null,
-        img: img1,
-        img2: img2,
-        img3: null,
-        time: time1,
-        time2: time2,
-        time3: null,
-        loc: loc1,
-        loc2: loc2,
-        loc3: null,
-        link: link1,
-        link2: link2,
-        link3: null,
-        desc: desc1,
-        desc2: desc2,
-        desc3: null,
-      });
-    }
-  }
-
-  const evTitle3 = await page.evaluate(() => {
-    return document.querySelector('#event-card-e-3 .ds-font-title-3')?.textContent
-  });
-
-  const img3 = await page.evaluate(() => {
-    return document.querySelector('#image-e-3')?.getAttribute('src')
-  });
-
-  const time3 = await page.evaluate(() => {
-    return document.querySelector('#event-card-e-3 time')?.textContent
-  });
-
-  const loc3 = await page.evaluate(() => {
-    return document.querySelector('#event-card-e-3 span.text-gray6')?.textContent
-  });
-
-  const link3 = await page.evaluate(() => {
-    return document.querySelector('#event-card-e-3')?.getAttribute('href')
-  });
-
-  let desc3 = await page.evaluate(() => {
-    const descgr3 = document.querySelectorAll('#event-card-e-3 p')
-    return Array.from(descgr3).map(p => p?.textContent).join(' ')
-  });
-
-  if (desc3.length > 300) {
-    desc3 = desc3.substring(0, 300).trimEnd() + '...'
-  }
-
-  try {
-    await page.waitForSelector('#event-card-e-4', {timeout: 5000});
-  } catch (e) {
-    if (e instanceof TimeoutError) {
-      return ({
-        title: evTitle1,
-        title2: evTitle2,
-        title3: evTitle3,
-        title4: null,
-        img: img1,
-        img2: img2,
-        img3: img3,
-        time: time1,
-        time2: time2,
-        time3: time3,
-        loc: loc1,
-        loc2: loc2,
-        loc3: loc3,
-        link: link1,
-        link2: link2,
-        link3: link3,
-        desc: desc1,
-        desc2: desc2,
-        desc3: desc3,
-      });
-    }
-  }
-
-  const evTitle4 = await page.evaluate(() => {
-    return document.querySelector('#event-card-e-4 .ds-font-title-3')?.textContent
-  });
 
   await browser.close();
 
-  return ({
-    title: evTitle1,
-    title2: evTitle2,
-    title3: evTitle3,
-    title4: evTitle4,
-    img: img1,
-    img2: img2,
-    img3: img3,
-    time: time1,
-    time2: time2,
-    time3: time3,
-    loc: loc1,
-    loc2: loc2,
-    loc3: loc3,
-    link: link1,
-    link2: link2,
-    link3: link3,
-    desc: desc1,
-    desc2: desc2,
-    desc3: desc3,
-  });
+  return {
+    title: events[0]?.title,
+    title2: events[1]?.title,
+    title3: events[2]?.title,
+    title4: events[3]?.title,
+    img: events[0]?.img,
+    img2: events[1]?.img,
+    img3: events[2]?.img,
+    time: events[0]?.time,
+    time2: events[1]?.time,
+    time3: events[2]?.time,
+    loc: events[0]?.loc,
+    loc2: events[1]?.loc,
+    loc3: events[2]?.loc,
+    link: events[0]?.link,
+    link2: events[1]?.link,
+    link3: events[2]?.link,
+    desc: events[0]?.desc,
+    desc2: events[1]?.desc,
+    desc3: events[2]?.desc,
+  };
 }
