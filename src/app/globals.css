@@ -2,30 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -105,17 +81,6 @@ html {
   font-weight: 300;
 }
 
-@media (max-width: 480px) {
-  .banner button {
-    padding: 5px 15px;
-    height: 40px;
-  }
-
-  .banner h1, .banner h1 {
-    font-size: 30px;
-  }
-}
-
 .card {
   background: linear-gradient(#ffe5c3, #ffddaf);
   padding: 24px;
@@ -176,31 +141,6 @@ html {
   margin-left: 10px;
 }
 
-@media (max-width: 840px) {
-  .card {
-    padding: 30px;
-  }
-
-  .card h2 {
-    text-align: center;
-  }
-
-  .cd-row {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .lpad {
-    margin-left: 0px;
-  }
-
-  .txt-row {
-    justify-content: center;
-  }
-}
-
 .cardspacing > * {
   margin: 10px 0;
  }
@@ -258,43 +198,6 @@ html {
    padding: 20px;
  }
 
- @media (max-width: 480px) {
-   .container p {
-     font-size: 12px;
-   }
-
-   section img {
-     height: 200px;
-     width: 280px;
-     padding: 0px;
-   }
-
-   .slideshow {
-     padding: 0px;
-     padding-top: 20px;
-   }
- }
-
- @media (max-width: 840px) {
-   .container {
-     background-position: 65% 50%;
-   }
-
-   section {
-     padding: 15px;
-   }
-
-   section > div {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-   }
-
-   section > div > div {
-     padding: 20px
-   }
- }
-
  .footer {
   max-width: 100%;
   display: flex;
@@ -334,28 +237,14 @@ html {
   padding-top: 20px;
 }
 
-.footer svg:hover, .table:hover {
+.footer svg:hover, .tavern-table:hover {
   filter: drop-shadow(0 0 8px #f5e3cc93);
 }
 
-.table {
+.tavern-table {
   width: 40px;
   height: 40px;
-}
-
-@media (max-width: 480px) {
-  .footer a {
-    margin: 5px 25px;
-  }
-
-  .footer > div {
-    font-size: 35px;
-  }
-
-  .table {
-    width: 35px;
-    height: 35px;
-  }
+  max-width: none;
 }
 
 .topnav {
@@ -398,6 +287,30 @@ html {
 }
 
 @media (max-width: 480px) {
+  .banner button {
+    padding: 5px 15px;
+    height: 40px;
+  }
+
+  .banner h1, .banner h1 {
+    font-size: 30px;
+  }
+
+  .container p {
+    font-size: 12px;
+  }
+
+  section img {
+    height: 200px;
+    width: 280px;
+    padding: 0px;
+  }
+
+  .slideshow {
+    padding: 0px;
+    padding-top: 20px;
+  }
+
   .topnav > .nav-text > a {
     padding: 5px 10px;
     font-size: 14px;
@@ -406,6 +319,62 @@ html {
   .trs-icon {
     height: 50px;
     width: 50px;
+  }
+
+  .footer a {
+    margin: 5px 25px;
+  }
+
+  .footer > div {
+    font-size: 35px;
+  }
+
+  .tavern-table {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 840px) {
+  .container {
+    background-position: 65% 50%;
+  }
+
+  section {
+    padding: 15px;
+  }
+
+  section > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  section > div > div {
+    padding: 20px
+  }
+
+  .card {
+    padding: 30px;
+  }
+
+  .card h2 {
+    text-align: center;
+  }
+
+  .cd-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lpad {
+    margin-left: 0px;
+  }
+
+  .txt-row {
+    justify-content: center;
   }
 }
 

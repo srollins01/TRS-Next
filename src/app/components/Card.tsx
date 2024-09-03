@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 interface Props {
@@ -16,12 +15,7 @@ function Card({evTitle, img, time, loc, desc, evLink} : Props) {
       <div className="card">
         <h2>{evTitle}</h2>
         <div className="cd-row">
-          <Image
-            src={`${img}` || "/game-day-card.png"}
-            width={150}
-            height={100}
-            alt="event image"
-          />
+        <img src={img || "/game-day-card.png"} alt="event image"/>
         <div className="cd-col">
           <div className="cd-row">
             <div className="txt-row">

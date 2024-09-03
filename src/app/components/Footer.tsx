@@ -22,7 +22,7 @@ function Footer() {
           <FontAwesomeIcon icon={["fab", "square-facebook"]} color="#BE8C4C"/>
         </a>
         <a href="https://tavern.tokyorpgsociety.com/" target="_blank">
-          <img src="/table.svg" className="table"/>
+          <img src="/table.svg" className="tavern-table" alt="table icon"/>
         </a>
         <a href="https://discord.gg/nrqC6rS4xa" target="_blank">
           <FontAwesomeIcon icon={["fab", "discord"]} color="#BE8C4C"/>
