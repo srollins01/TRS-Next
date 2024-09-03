@@ -1,7 +1,16 @@
+import { Kaushan_Script } from 'next/font/google'
+
+const kaushanscript = Kaushan_Script({
+  weight: "400",
+  style: "normal",
+  subsets: ["latin"],
+  display: 'swap',
+})
+
 function Banner() {
   return (
     <div className="banner">
-      <h1>Tokyo RPG Society</h1>
+      <h1 className={kaushanscript.className}>Tokyo RPG Society</h1>
       <h2>#1 Community for Tabletop RPGs in Tokyo</h2>
       <div>
         <a href="https://tavern.tokyorpgsociety.com/" target="_blank">

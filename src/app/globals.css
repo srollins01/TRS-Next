@@ -38,7 +38,6 @@ a {
 
 body {
   margin: 0;
-  font-family: "Inter", sans-serif;
   font-weight: 300;
 }
 
@@ -99,7 +98,6 @@ html {
 .banner h1 {
   font-size: 40px;
   color: #e1a52c;
-  font-family: "Kaushan Script", cursive;
   margin: 0;
 }
 
@@ -327,7 +325,6 @@ html {
 }
 
 .footer h2 {
-  font-family: "Kaushan Script", cursive;
   margin-top: 10px;
   margin-bottom: 0px;
   color: #e1a52cd3;

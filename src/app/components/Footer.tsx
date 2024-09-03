@@ -1,11 +1,19 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Kaushan_Script } from 'next/font/google'
+
+const kaushanscript = Kaushan_Script({
+  weight: "400",
+  style: "normal",
+  subsets: ["latin"],
+  display: 'swap',
+})
 
 function Footer() {
   const today = new Date();
   return (
     <div id="footer" className="footer">
       <img src="/trs-icon.png" height="70" width="70" alt="trs home icon"/>
-      <h2>Find us on social media</h2>
+      <h2 className={kaushanscript.className}>Find us on social media</h2>
       <div>
         <a href="https://www.meetup.com/rpgtokyo/" target="_blank">
           <FontAwesomeIcon icon={["fab", "meetup"]} color="#BE8C4C"/>
