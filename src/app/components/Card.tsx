@@ -16,12 +16,12 @@ function Card({evTitle, img, time, loc, desc, evLink} : Props) {
       <div className="card">
         <h2>{evTitle}</h2>
         <div className="cd-row">
-          <Image
+          {/* <Image
             src={`${img}` || "/game-day-card.png"}
             width={150}
             height={100}
             alt="event image"
-          />
+          /> */}
         <div className="cd-col">
           <div className="cd-row">
             <div className="txt-row">
