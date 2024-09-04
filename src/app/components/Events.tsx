@@ -5,7 +5,7 @@ export default async function Events() {
   let events;
   events = await Scraper();
 
-  if (!events) {
+  if (!events.title) {
     return (
       <section id="events">
         <h1><strong><em>Upcoming Events</em></strong></h1>
