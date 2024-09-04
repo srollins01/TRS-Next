@@ -12,7 +12,7 @@ export default async function Scraper() {
     const eventCardSelector = `#event-card-e-${eventIndex}`;
 
     try {
-      await page.waitForSelector(eventCardSelector, { timeout: 8000 });
+      await page.waitForSelector(eventCardSelector);
     } catch (e) {
       if (e instanceof TimeoutError) return null;
       throw e;
