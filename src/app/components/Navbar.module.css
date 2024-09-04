@@ -1,0 +1,47 @@
+.topnav {
+  position: sticky;
+  display: flex;
+  z-index: 99;
+  background-color: #0A0707;
+  overflow: hidden;
+  width: 100%;
+  align-items: center;
+  border-image: url(/wood-border.png) 30 fill / 0 0 19px 0;
+  border-image-repeat: repeat;
+}
+
+.topnav > a {
+  padding: 14px 20px;
+}
+
+.topnav > a > img:hover {
+  box-shadow: 0px 0px 10px #f6ba6c5e;
+}
+
+.topnav > .nav-text > a {
+  float: left;
+  color: #BE8C4C;
+  text-align: center;
+  padding: 14px 36px;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.topnav > .nav-text > a:hover {
+  color: #f1b362;
+  text-shadow: 0px 0px 10px #f4ca93;
+}
+
+@media (max-width: 480px) {
+  .topnav > .nav-text > a {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 720px) {
+  .topnav > .nav-text > a {
+    padding: 5px 20px;
+    font-size: 20px;
+  }
+}

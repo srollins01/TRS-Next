@@ -1,0 +1,72 @@
+.footer {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #0A0707;
+  overflow: hidden;
+  max-width: 100%;
+  align-items: center;
+  border-image: url(/wood-border.png) 30 fill / 19px 0 0 0;
+  border-image-repeat: repeat;
+  color: #BE8C4C;
+  padding: 20px;
+}
+
+.footer a {
+  margin: 5px 40px;
+}
+
+.footer > div {
+  padding: 10px;
+  font-size: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.footer h2 {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  color: #e1a52cd3;
+}
+
+.footer > img {
+  padding-top: 20px;
+}
+
+.footer > p {
+  font-size: 14px;
+  color: #d8ae5a8a;
+}
+
+.footer svg:hover, .tavern-table:hover {
+  filter: drop-shadow(0 0 8px #f5e3cc93);
+}
+
+.tavern-table {
+  width: 40px;
+  height: 40px;
+  max-width: none;
+}
+
+@media (max-width: 480px) {
+  .footer a {
+    margin: 5px 25px;
+  }
+
+  .footer > div {
+    font-size: 35px;
+  }
+
+  .footer > p {
+    font-size: 12px;
+  }
+
+  .tavern-table {
+    width: 35px;
+    height: 35px;
+  }
+}

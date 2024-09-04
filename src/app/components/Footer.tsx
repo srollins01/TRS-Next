@@ -1,3 +1,4 @@
+import styles from './Footer.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Kaushan_Script } from 'next/font/google'
 
@@ -11,7 +12,7 @@ const kaushanscript = Kaushan_Script({
 function Footer() {
   const today = new Date();
   return (
-    <div id="footer" className="footer">
+    <div id="footer" className={styles.footer}>
       <img src="/trs-icon.png" height="70" width="70" alt="trs home icon"/>
       <h2 className={kaushanscript.className}>Find us on social media</h2>
       <div>
@@ -22,7 +23,7 @@ function Footer() {
           <FontAwesomeIcon icon={["fab", "square-facebook"]} color="#BE8C4C"/>
         </a>
         <a href="https://tavern.tokyorpgsociety.com/" target="_blank">
-          <img src="/table.svg" className="tavern-table" alt="table icon"/>
+          <img src="/table.svg" className={styles['tavern-table']} alt="table icon"/>
         </a>
         <a href="https://discord.gg/nrqC6rS4xa" target="_blank">
           <FontAwesomeIcon icon={["fab", "discord"]} color="#BE8C4C"/>

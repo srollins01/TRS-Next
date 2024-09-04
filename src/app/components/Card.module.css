@@ -1,0 +1,76 @@
+.card {
+  background: linear-gradient(#ffe5c3, #ffddaf);
+  padding: 30px;
+  border-image: url(/wood-border-rnd.png) 30 / 19px;
+  border-radius: 19px;
+  transition: scale 0.1s, box-shadow 0.1s;
+  color: #3b210dfa;
+  text-align: left;
+}
+
+.card:hover {
+  box-shadow: 0 0 10px #00000081;
+  scale: 102%;
+}
+
+.card > div {
+  align-items: center;
+}
+
+.card > div > div {
+  padding: 10px;
+}
+
+.card h2 {
+  margin: 5px 0 10px 10px;
+}
+
+.card img {
+  height: 160px;
+  width: 230px;
+  filter: drop-shadow(0 0 5px #3b210d5d);
+  padding: 10px;
+}
+
+.card p {
+  padding: 0px 5px;
+  margin: 0px;
+}
+
+.cd-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.cd-row, .txt-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.desc {
+  padding: 0 0 0 5px !important;
+  margin: 0px !important;
+}
+
+@media (max-width: 840px) {
+  .card {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .card h2 {
+    margin: 10px 5px;
+    text-align: center;
+  }
+
+  .cd-row {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .txt-row {
+    justify-content: center;
+  }
+}

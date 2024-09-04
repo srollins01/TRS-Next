@@ -1,13 +1,14 @@
+import styles from './Container.module.css'
 import Events from "./Events"
 import Slideshow from "./Slideshow"
 
 function Container() {
   return (
-    <div className="container">
+    <div className={styles.container}>
 
-      <section id="about-us">
+      <section id="about-us" className={styles['about-us']}>
         <div>
-          <div className="slideshow" data-aos="fade-up">
+          <div className={styles.slideshow} data-aos="fade-up">
             <Slideshow />
           </div>
           <div>

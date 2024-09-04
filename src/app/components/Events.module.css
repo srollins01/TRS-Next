@@ -1,0 +1,39 @@
+.card {
+  background: linear-gradient(#ffe5c3, #ffddaf);
+  padding: 24px;
+  border-image: url(/wood-border-rnd.png) 30 / 19px;
+  border-radius: 19px;
+  transition: scale 0.1s, box-shadow 0.1s;
+  color: #3b210dfa;
+}
+
+.card:hover {
+  box-shadow: 0 0 10px #00000081;
+  scale: 102%;
+}
+
+.card.inactive-card:hover {
+  box-shadow: none;
+  scale: 100%;
+}
+
+.cardspacing > * {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.events > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.inactive-card > h2, .card > h2 {
+  margin: 5px 30px;
+}
+
+@media (max-width: 480px) {
+  .events > h1 {
+    padding-top: 15px;
+  }
+}
