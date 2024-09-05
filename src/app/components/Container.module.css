@@ -20,9 +20,9 @@
 }
 
 .container {
-  background: url(/beige-bg.png);
+  background: url(/beige-bg.jpg);
   max-width: 100%;
-  background-size: cover;
+  background-repeat: repeat;
   text-align: center;
   display: flex;
   flex-direction: row;
