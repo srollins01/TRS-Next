@@ -41,13 +41,9 @@
   font-size: 16px;
 }
 
-.rsis-container {
-  border-radius: 5px !important;
-  overflow: hidden;
-}
-
 .slideshow {
-  padding: 20px;
+  margin: 20px 25px;
+  clip-path: inset(0 round 5px);
 }
 
 @media (max-width: 840px) {
@@ -58,7 +54,7 @@
   }
 
   .about-us > div > div {
-    padding: 20px 0;
+    margin: 20px 0;
   }
 
   .container {
@@ -86,13 +82,12 @@
   }
 
   .slideshow {
-    padding: 0px;
-    padding-top: 20px;
+    margin: 0;
   }
 
-  .slideshow div {
+  .slideshow > div > div, .slideshow > div {
     width: 270px !important;
-    height: 190px !important;
+    height: 200px !important;
   }
 }
 
