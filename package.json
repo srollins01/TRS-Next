@@ -19,7 +19,6 @@
     "jsdom": "^25.0.0",
     "next": "14.2.7",
     "postcss": "^8.4.44",
-    "puppeteer": "^23.2.1",
     "react": "^18",
     "react-dom": "^18",
     "react-simple-image-slider": "^2.4.1",

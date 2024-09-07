@@ -15,6 +15,8 @@
 
 .card > div {
   align-items: center;
+  border-radius: 5px;
+  background-color: #f2af796b;
 }
 
 .card > div > div {
@@ -37,6 +39,11 @@
   margin: 0px;
 }
 
+.card .txt-row > p {
+  line-height: 1.5;
+  margin: 5px;
+}
+
 .cd-col {
   display: flex;
   flex-direction: column;
@@ -53,24 +60,35 @@
   margin: 0px !important;
 }
 
+.outer-card {
+  width: 100%;
+}
+
 @media (max-width: 840px) {
   .card {
-    padding: 20px;
     text-align: center;
   }
 
   .card h2 {
     margin: 10px 5px;
-    text-align: center;
   }
 
   .cd-row {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
 
   .txt-row {
     justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .card h2 {
+    font-size: 20px;
   }
 }
