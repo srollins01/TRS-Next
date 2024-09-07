@@ -7,20 +7,28 @@ export default async function EventList() {
   const dom = new JSDOM(html);
   const document = dom.window.document;
 
-  const data = document.querySelector("#event-card-e-1 .ds-font-title-3")?.textContent;
-  console.log(data);
+  const paragraphs = document.querySelectorAll('#e-1 p');
+  console.log(paragraphs.length);
+  paragraphs.forEach((p) => {
+    console.log(p.textContent);
+  });
 
   async function getEventDetails(eventIndex : number) {
     const eventSel = `#event-card-e-${eventIndex}`;
 
     const evTitle = document.querySelector(`${eventSel} .ds-font-title-3`)?.textContent
-    console.log(evTitle);
     const img = document.querySelector(`${eventSel.replace('#event-card', '#image')}`)?.getAttribute('src')
     const time = document.querySelector(`${eventSel} time`)?.textContent
     const loc = document.querySelector(`${eventSel} span.text-gray6`)?.textContent
     const link = document.querySelector(eventSel)?.getAttribute('href')
+    const paragraphs = document.querySelectorAll('#e-1 p');
+    let desc = Array.from(paragraphs).map(p => p?.textContent).join(' ');
 
-    return { title: evTitle, img, time, loc, link };
+    if (desc.length > 250) {
+      desc = desc.substring(0, 250).trimEnd() + '...';
+    }
+
+    return { title: evTitle, img, time, loc, link, desc };
   }
 
   const events = [];
@@ -29,8 +37,6 @@ export default async function EventList() {
     if (!eventDetails) break;
     events.push(eventDetails);
   }
-
-  console.log(events[0].title)
 
   return {
     title: events[0]?.title,
@@ -48,6 +54,9 @@ export default async function EventList() {
     loc3: events[2]?.loc,
     link: events[0]?.link,
     link2: events[1]?.link,
-    link3: events[2]?.link
+    link3: events[2]?.link,
+    desc: events[0]?.desc,
+    desc2: events[1]?.desc,
+    desc3: events[2]?.desc
   };
 }

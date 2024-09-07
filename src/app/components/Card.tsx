@@ -6,10 +6,11 @@ interface Props {
   img: any,
   time: any,
   loc: any,
-  evLink: any
+  evLink: any,
+  desc: any
 }
 
-function Card({evTitle, img, time, loc, evLink} : Props) {
+function Card({evTitle, img, time, loc, evLink, desc} : Props) {
   return (
     <a href={evLink} target="_blank" className={styles['outer-card']}>
       <div className={styles.card}>
@@ -26,6 +27,9 @@ function Card({evTitle, img, time, loc, evLink} : Props) {
               <p>
                 <FontAwesomeIcon icon={["fas", "location-dot"]}/> &nbsp;{loc}
               </p>
+            </div>
+            <div className={styles['txt-row']}>
+              <p>{desc}</p>
             </div>
           </div>
         </div>
