@@ -7,12 +7,6 @@ export default async function EventList() {
   const dom = new JSDOM(html);
   const document = dom.window.document;
 
-  const paragraphs = document.querySelectorAll('#e-1 p');
-  console.log(paragraphs.length);
-  paragraphs.forEach((p) => {
-    console.log(p.textContent);
-  });
-
   async function getEventDetails(eventIndex : number) {
     const eventSel = `#event-card-e-${eventIndex}`;
 
@@ -21,7 +15,7 @@ export default async function EventList() {
     const time = document.querySelector(`${eventSel} time`)?.textContent
     const loc = document.querySelector(`${eventSel} span.text-gray6`)?.textContent
     const link = document.querySelector(eventSel)?.getAttribute('href')
-    const paragraphs = document.querySelectorAll('#e-1 p');
+    const paragraphs = document.querySelectorAll(`#e-${eventIndex} p`);
     let desc = Array.from(paragraphs).map(p => p?.textContent).join(' ');
 
     if (desc.length > 250) {
